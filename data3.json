@@ -18,15 +18,15 @@
         "content": [
           {
             "tag": "li",
-            "content": "<img src='http://placekitten.com/g/200/200'/>"
+            "content": "<img src='https://media.giphy.com/media/OmK8lulOMQ9XO/giphy.gif'/>"
           },
           {
             "tag": "li",
-            "content": "<img src='http://placekitten.com/g/201/200'/>"
+            "content": "<img src='https://media.giphy.com/media/3o72EX5QZ9N9d51dqo/giphy.gif'/>"
           },
           {
             "tag": "li",
-            "content": "<img src='http://placekitten.com/g/200/201'/>"
+            "content": "<img src='https://media.giphy.com/media/Ov5NiLVXT8JEc/giphy.gif'/>"
           }
         ]
       },
