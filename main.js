@@ -34,14 +34,24 @@
                   $(`${parentElement.tag}:nth-child(${index+1})`).append(`<${childElement.tag}></${childElement.tag}>`);
 
                   childElement.content.forEach(function(innerElement) {
-                    $(`${childElement.tag}`).append(`<${innerElement.tag}>${innerElement.content}</${innerElement.tag}>`)
+                    $(`${childElement.tag}`).append(`<${innerElement.tag}>${innerElement.content}</${innerElement.tag}>`);
                   });
                 }
               });
             } else {
               // write to dom
-              $(`${parentElement.tag}`)
-              .append(`<${parentElement.content.tag}>${parentElement.content.content}</${parentElement.content.tag}>`);
+
+              if (typeof parentElement.content.content == 'object') {
+                parentElement.content.content.forEach(function(childElement) {
+                  // console.log(childElement);
+
+                  $(`${parentElement.tag}:nth-child(${index+1})`)
+                  .append(`<${childElement.tag}>${childElement.content}</${childElement.tag}>`);
+                });
+              } else {
+                $(`${parentElement.tag}:nth-child(${index+1})`)
+                .append(`<${parentElement.content.tag}>${parentElement.content.content}</${parentElement.content.tag}>`);
+              }
             }
           });
         };
@@ -53,6 +63,4 @@
   } else {
     alert('The File APIs are not fully supported in this browser.');
   }
-
-
 }());
