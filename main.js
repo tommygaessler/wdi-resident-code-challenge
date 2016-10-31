@@ -3,6 +3,10 @@
 
   if (window.File && window.FileReader && window.FileList && window.Blob) {
     $('#files').on('change', function(event) {
+
+      // refactor with while loop
+
+      $('#list').empty();
       var file = event.target.files[0];
       // console.log(file);
 
@@ -17,7 +21,6 @@
             $('#list').append(`<${parentElement.tag}></${parentElement.tag}>`);
 
             if (parentElement.content.length) {
-              // another forEach because its an array
               // console.log('Array', parentElement.content);
 
               parentElement.content.forEach(function(childElement) {
@@ -39,7 +42,6 @@
                 }
               });
             } else {
-              // write to dom
 
               if (typeof parentElement.content.content == 'object') {
                 parentElement.content.content.forEach(function(childElement) {
