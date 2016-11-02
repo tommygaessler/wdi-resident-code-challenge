@@ -1,3 +1,5 @@
+// first attempt to figure out logic and get something rendered on the page
+
 (function() {
   'use strict';
 
