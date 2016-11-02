@@ -15,16 +15,20 @@
             for (var property in object) {
               if (object.hasOwnProperty(property)) {
 
-                // if (typeof object[property] === 'object' && object[property].length) {
-                //   // for each or something here
-                // }
+                if (typeof object[property] === 'object' && object[property].length) {
+                  object[property].forEach(function(obj) {
+                    tags = [`${tags[index]}`];
+                    index = 0;
+                    recursion(obj, '', tags, index);
+                  });
+                }
 
-                if (typeof object[property] === 'object') {
+                else if (typeof object[property] === 'object') {
                   recursion(object[property], stack + '.' + property, tags, index);
                 }
 
                 else if (typeof object[property] === 'string' && property === 'content') {
-                  $(`${tags[index]}:last-of-type`).append(object[property]);
+                  $(`#output ${tags[index]}:last-of-type`).append(object[property]);
                 }
 
                 else {
